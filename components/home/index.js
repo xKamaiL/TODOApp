@@ -3,11 +3,15 @@ import React, { Component } from 'react';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import { H1, Button, Text } from 'native-base';
 import { inject, observer } from 'mobx-react';
+import CreateScreen from '../../screens/CreateScreen';
 
 @inject('todo')
 @observer
 class Home extends Component {
   render() {
+    if (this.props.todo.is_adding) {
+      return <CreateScreen />;
+    }
     return (
       <Grid>
         <Row size={1}>
