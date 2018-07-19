@@ -24,16 +24,13 @@ export default class App extends React.Component {
         />
       );
     } else {
-      const Instances = (
+      return (
         <View style={styles.container}>
           {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-          <AppNavigator />
+          <Provider {...this.stores}>
+            <AppNavigator />
+          </Provider>
         </View>
-      );
-      return (
-        <Provider>
-          <Instances />
-        </Provider>
       );
     }
   }
